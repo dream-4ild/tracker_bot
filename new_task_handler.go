@@ -11,7 +11,7 @@ import (
 )
 
 func newTaskHandler(ctx context.Context, b *bot.Bot, update *models.Update) {
-	re := regexp.MustCompile(`(?s)^/new_task\s(\p{L}+)(\s(\d{2}\.\d{2}\.\d{4}))?\s(.+)$`)
+	re := regexp.MustCompile(`(?s)^/new_task\s(\p{L}+_$*\p{L})(\s(\d{2}\.\d{2}\.\d{4}))?\s(.+)$`)
 	matches := re.FindStringSubmatch(update.Message.Text)
 	if matches == nil || len(matches) != 5 {
 		defaultHandler(ctx, b, update)

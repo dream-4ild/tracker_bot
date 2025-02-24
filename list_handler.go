@@ -19,7 +19,7 @@ func (a ByProject) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a ByProject) Less(i, j int) bool { return a[i].project < a[j].project }
 
 func listHandler(ctx context.Context, b *bot.Bot, update *models.Update) {
-	re := regexp.MustCompile(`(?s)^/list(\s(\w+))?$`)
+	re := regexp.MustCompile(`(?s)^/list(\s(\p{L}+_$*\p{L}))?$`)
 	matches := re.FindStringSubmatch(update.Message.Text)
 
 	if matches == nil || len(matches) != 3 {
