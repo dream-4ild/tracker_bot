@@ -15,7 +15,7 @@ type Server struct {
 
 func NewServer() *Server {
 	db, err := sql.Open("postgres", fmt.Sprintf(
-		"database=task_tracker_db sslmode=disable user=%s password=%s host=postgres",
+		"database=task_tracker_db sslmode=disable user=%s password=%s host=postgres port=5432",
 		os.Getenv("POSTGRES_USER"), os.Getenv("POSTGRES_PASSWORD")))
 	if err != nil {
 		log.Fatal(err)
